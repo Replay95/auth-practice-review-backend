@@ -17,10 +17,6 @@ app.use(cors(corsOption));
 
 app.use(express.json());
 
-app.listen(PORT, () => {
-  console.log(`サーバー起動・ポート${PORT} .env: ${process.env.NODE_ENV}`);
-});
-
 app.get("/", (req, res) => {
   res.send("Hello world");
 });
@@ -184,4 +180,8 @@ app.post("/api/login", async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "サーバーでエラーが発生しました" });
   }
+});
+
+app.listen(PORT, () => {
+  console.log(`サーバー起動・ポート${PORT} .env: ${process.env.NODE_ENV}`);
 });
